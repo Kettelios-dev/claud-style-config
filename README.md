@@ -1,161 +1,164 @@
-# Configurateur de style pour Claude
+# Style Configurator for Claude
 
-**Règle le style de ton futur site en le voyant en direct, puis donne à Claude un brief précis au lieu de « fais-moi un site moderne ».**
+**Tune your future website's style while watching it live, then hand Claude a precise brief instead of "make me a modern website".**
 
-Cet outil tient en une seule page HTML. Tu choisis les couleurs, les polices, les formes, la mise en page et les animations sur un faux site d'exemple. L'outil génère ensuite un brief : un bloc de prompt, un `DESIGN.md` ou un JSON. Claude (Claude.ai, Claude Code, l'API…) s'en sert pour créer un site qui a vraiment ce style, plutôt qu'un rendu générique.
+This tool is a single HTML page. You pick colors, fonts, shapes, layout and animations on a sample website. The tool then generates a brief: a prompt block, a `DESIGN.md` or a JSON file. Claude (Claude.ai, Claude Code, the API…) uses it to build a site that really has this style, instead of a generic look.
 
-👉 **Utiliser l'outil en ligne :** https://kettelios-dev.github.io/claud-style-config/
+👉 **Use the tool online:** https://kettelios-dev.github.io/claud-style-config/
 
----
-
-## Sommaire
-
-- [Ce que fait l'outil](#ce-que-fait-loutil)
-- [Démarrage rapide](#démarrage-rapide)
-- [Configurer Claude (facultatif)](#configurer-claude-facultatif)
-- [Guide des onglets](#guide-des-onglets)
-- [Exporter et utiliser le brief](#exporter-et-utiliser-le-brief)
-- [Confidentialité et sécurité](#confidentialité-et-sécurité)
-- [Héberger sa propre copie](#héberger-sa-propre-copie)
-- [Problèmes fréquents](#problèmes-fréquents)
-- [Pour les développeurs](#pour-les-développeurs)
+🌐 **English and French**: switch with the **FR / EN** buttons in the top-right corner of the panel. The interface, the sample website and the exported briefs all follow the chosen language.
 
 ---
 
-## Ce que fait l'outil
+## Contents
 
-- **Aperçu en direct** d'un site complet : navigation, hero, sections, pages et sous-pages, en version bureau ou mobile, en thème clair ou sombre.
-- **Six directions toutes faites** pour démarrer : Éditorial, Néo-brutal, Doux organique, Tech précis, Rétro imprimé, Minimal calme.
-- **Curseurs de personnalité** (sérieux ↔ ludique, minimal ↔ maximal…) : l'outil propose un style complet à partir d'eux.
-- **Style tiré d'une image** : importe une capture ou une photo d'ambiance. Les couleurs, la luminosité et la densité sont analysées directement dans ton navigateur.
-- **Palette calculée** à partir d'une seule couleur. Les contrastes respectent la norme d'accessibilité WCAG AA.
-- **Directives en français** : « boutons en pilule », « ajoute une FAQ après les tarifs », « fond sombre sur cette section »…
-- **Choix de ce qui part dans le brief** : chaque réglage peut être *imposé* ou laissé *libre* à Claude.
-- **Export** en bloc de prompt, en `DESIGN.md` ou en JSON (réimportable).
-- **Annuler** avec Ctrl+Z. Ton travail est sauvegardé automatiquement dans le navigateur.
+- [What it does](#what-it-does)
+- [Quick start](#quick-start)
+- [Connecting Claude (optional)](#connecting-claude-optional)
+- [Tab guide](#tab-guide)
+- [Exporting and using the brief](#exporting-and-using-the-brief)
+- [Privacy and security](#privacy-and-security)
+- [Hosting your own copy](#hosting-your-own-copy)
+- [Troubleshooting](#troubleshooting)
+- [For developers](#for-developers)
 
-## Démarrage rapide
+---
 
-1. Ouvre l'outil, en ligne ou en local (voir plus bas).
-2. Dans **Style → Point de départ**, clique sur une direction toute faite, ou règle les curseurs puis clique sur « Proposer un style ».
-3. Ajuste les détails dans les groupes Couleurs, Typographie, Mise en page, etc.
-4. Remplis **Contexte** (nom, accroche, cible) et **Garde-fous** (ce qui est interdit, l'élément signature du site).
-5. Clique sur **Exporter le brief**, puis copie le résultat ou télécharge-le.
+## What it does
 
-Aucun compte n'est nécessaire et il n'y a rien à installer.
+- **Live preview** of a full website: navigation, hero, sections, pages and sub-pages, in desktop or mobile view, light or dark theme.
+- **Six ready-made directions** to start from: Editorial, Neo-brutalist, Soft organic, Precise tech, Retro print, Calm minimal.
+- **Personality sliders** (serious ↔ playful, minimal ↔ maximal…): the tool suggests a complete style from them.
+- **Style from an image**: import a screenshot or a mood photo. Colors, brightness and density are analyzed directly in your browser.
+- **Generated palette** from a single color. Contrasts meet the WCAG AA accessibility standard.
+- **Plain-language directives**, in English or French: "pill buttons", "add a FAQ after pricing", "dark background on this section"…
+- **Choose what goes into the brief**: each setting can be *enforced* or left *free* for Claude to decide.
+- **Export** as a prompt block, a `DESIGN.md` or JSON (which you can import again).
+- **Undo** with Ctrl+Z. Your work is saved automatically in the browser.
 
-## Configurer Claude (facultatif)
+## Quick start
 
-Sans Claude, l'outil marche entièrement. La barre de directives comprend alors les demandes simples en **mode local** : arrondis, couleurs (« accent bleu »), ombres, grain, densité, majuscules, ajout, suppression ou déplacement de sections…
+1. Open the tool, online or locally (see below).
+2. In **Style → Starting point**, click a ready-made direction, or set the sliders and click **Suggest a style from these sliders**.
+3. Fine-tune the Colors, Typography, Layout groups, and so on.
+4. Fill in **Context** (name, tagline, audience) and **Guardrails and signature** (what is forbidden, the site's signature element).
+5. Click **Export brief**, then copy or download the result.
 
-Avec Claude, tu peux écrire des directives libres (« un côté plus artisanal, comme une affiche des années 70 »). Le bouton « Affiner avec Claude » apparaît aussi après l'import d'une image : il en déduit la police, la mise en page et les formes.
+No account is needed and there is nothing to install.
 
-### Avec une clé API Anthropic
+## Connecting Claude (optional)
 
-1. Va sur [console.anthropic.com](https://console.anthropic.com), crée un compte, ajoute du crédit, puis va dans **API Keys → Create Key**.
-2. Dans l'outil, ouvre l'onglet **Directives**.
-3. Colle la clé (elle commence par `sk-ant-`) et clique sur **Utiliser**.
-4. Le point devient vert et le texte indique « Claude interprète tes directives en langage libre ».
+The tool works fully without Claude. The directive bar then understands simple requests in **local mode**: corner radius, colors ("blue accent"), shadows, grain, density, uppercase, adding, removing or moving sections…
 
-| Détail | Valeur |
+With Claude, you can write free-form directives ("a more handcrafted feel, like a 70s poster"). After you import an image, a **Refine with Claude** button also appears: it works out the font, layout and shapes from the image.
+
+### With an Anthropic API key
+
+1. Go to [console.anthropic.com](https://console.anthropic.com), create an account, add credit, then go to **API Keys → Create Key**.
+2. In the tool, open the **Directives** tab.
+3. Paste the key (it starts with `sk-ant-`) and click **Use**.
+4. The dot turns green and the text says "Claude interprets your directives in free-form language".
+
+| Detail | Value |
 |---|---|
-| Modèle | `claude-opus-5-5`, effort `low` (réponses rapides) |
-| Coût | Facturé sur ton compte Anthropic. Une directive coûte en général quelques centimes au plus. |
-| Où va la clé | Uniquement vers `api.anthropic.com`, directement depuis ton navigateur. Il n'y a aucun serveur intermédiaire. |
-| Où elle est stockée | Dans le `localStorage` de ton navigateur, pour cette adresse seulement |
-| L'effacer | Bouton **Oublier** |
+| Model | `claude-opus-5-5`, effort `low` (fast answers) |
+| Cost | Billed to your Anthropic account. A directive usually costs a few cents at most. |
+| Where the key goes | Only to `api.anthropic.com`, straight from your browser. There is no server in between. |
+| Where it is stored | In your browser's `localStorage`, for this address only |
+| Removing it | **Forget** button |
 
-Pour changer de modèle, modifie la constante `API_MODEL` dans `index.html`, par exemple `claude-sonnet-5-5` (moins cher).
+To change the model, edit the `API_MODEL` constant in `index.html`, for example to `claude-sonnet-5-5` (cheaper).
 
-### Dans Claude.ai (artifact)
+### In Claude.ai (as an artifact)
 
-Si tu ouvres le fichier comme artifact dans Claude.ai, l'outil utilise directement le Claude de la conversation. Aucune clé n'est demandée et le champ de clé est masqué.
+If you open the file as an artifact in Claude.ai, the tool uses the conversation's Claude directly. No key is asked for and the key field is hidden.
 
-## Guide des onglets
+## Tab guide
 
 ### Style
 
-| Groupe | Ce que tu règles |
+| Group | What you set |
 |---|---|
-| 00 · Point de départ | Les directions toutes faites et les 5 curseurs de personnalité |
-| IM · Depuis une image | L'analyse d'une image de référence |
-| 01 · Contexte | Le type de site, le nom, l'accroche, l'action principale, la cible, les adjectifs, les sites de référence |
-| 02 · Couleurs | La couleur principale, la stratégie de palette, la saturation, la teinte des gris, les thèmes clair/sombre, les dégradés |
-| 03 · Typographie | Les polices des titres et du texte, l'écart de taille, la graisse, la casse, l'interlettrage |
-| 04 · Mise en page | La structure (centrée, asymétrique, éditoriale, bento, écran partagé) et la densité |
-| 05 · Formes et matières | L'arrondi, les bordures, les ombres, le grain |
-| 06 · Images | Le style du visuel principal et des icônes |
-| 07 · Animations | Le niveau, de 0 (statique) à 3 (très animé) |
-| 08 · Composants | Le style des boutons et de la navigation |
-| 09 · Réglages fins | La taille du texte, les interlignes, la largeur max, la taille des boutons, les couleurs exactes forcées |
-| 10 · Garde-fous | Les interdits, l'élément obligatoire, l'élément signature |
+| 00 · Starting point | The ready-made directions and the 5 personality sliders |
+| IM · From an image | Analysis of a reference image |
+| 01 · Context | Site type, name, tagline, main action, audience, adjectives, reference sites |
+| 02 · Colors | Main color, palette strategy, saturation, gray tint, light/dark themes, gradients |
+| 03 · Typography | Heading and body fonts, size scale, weight, case, letter spacing |
+| 04 · Layout | Structure (centered, asymmetric, editorial, bento, split screen) and density |
+| 05 · Shapes and materials | Corner radius, borders, shadows, grain |
+| 06 · Images | Style of the main visual and of the icons |
+| 07 · Animations | Level, from 0 (static) to 3 (very animated) |
+| 08 · Components | Button and navigation style |
+| 09 · Fine-tuning | Text size, line heights, max width, button size, exact forced colors |
+| 10 · Guardrails and signature | Forbidden things, required element, signature element |
 
-Deux interrupteurs contrôlent ce qui part dans le brief :
-- **« Inclure dans le brief »** sur chaque groupe : décoché, le groupe entier est laissé au choix de Claude.
-- **« imposé / libre »** sur chaque réglage : *libre* veut dire que Claude choisit lui-même ce réglage, dans l'esprit du reste.
+Two switches control what goes into the brief:
+- **Include in the brief** on each group: when unchecked, the whole group is left to Claude.
+- **enforced / free** on each setting: *free* means Claude picks that setting itself, in the spirit of the rest.
 
 ### Structure
 
-- **Arborescence des pages** : ajoute, renomme, réordonne et range des pages en sous-pages (→ / ←).
-- **Sections de la page** : ajoute (hero, FAQ, tarifs, galerie, contact…), glisse-dépose, masque ou supprime.
-- Par défaut, la structure **ne part pas** dans le brief : elle sert à tester le style sur plusieurs pages. Coche l'option pour l'inclure.
+- **Page tree**: add, rename and reorder pages, and nest them as sub-pages (→ / ←).
+- **Page sections**: add (hero, FAQ, pricing, gallery, contact…), drag and drop, hide or delete.
+- By default, the structure **is not** included in the brief: it is there to test the style on several pages. Check the option to include it.
 
 ### Directives
 
-- Écris une directive dans la barre sous l'aperçu, puis clique sur **Appliquer**.
-- **Cibler une section** : clique sur ce bouton, puis sur une section de l'aperçu. La directive ne s'appliquera qu'à elle.
-- L'historique des directives est listé ici. « Retirer » enlève une directive du brief. Pour annuler son effet, utilise **Annuler**.
+- Type a directive in the bar under the preview, then click **Apply**.
+- **Target a section**: click this button, then a section in the preview. The directive will apply to that section only.
+- The directive history is listed here. **Remove** takes a directive out of the brief. To undo its effect, use **Undo**.
 
-## Exporter et utiliser le brief
+## Exporting and using the brief
 
-Clique sur **Exporter le brief** et choisis le format :
+Click **Export brief** and pick a format:
 
-| Format | Usage |
+| Format | Use |
 |---|---|
-| **Bloc de prompt** | À coller sous ta demande dans Claude.ai : « Crée-moi le site de mon atelier… » suivi du bloc. |
-| **DESIGN.md** | À mettre à la racine du projet pour Claude Code, puis à demander : « Respecte DESIGN.md ». |
-| **JSON** | Une sauvegarde complète de l'état. Avec **Importer un JSON**, tu la recharges, sur un autre navigateur ou chez quelqu'un d'autre. |
+| **Prompt block** | Paste it under your request in Claude.ai: "Build the website for my workshop…" followed by the block. |
+| **DESIGN.md** | Put it at the root of the project for Claude Code, then ask: "Follow DESIGN.md". |
+| **JSON** | A full backup of the state. With **Import a JSON**, you can load it again, in another browser or on someone else's computer. |
 
-Deux raccourcis en haut de la fenêtre d'export :
-- **Style graphique seulement** (par défaut) : le brief ne fixe que l'apparence. Le contenu vient de ta demande.
-- **Tout inclure** : il ajoute le contexte, l'arborescence et les directives sur le contenu.
+Two shortcuts at the top of the export window:
+- **Visual style only** (the default): the brief only sets the look. The content comes from your request.
+- **Include everything**: adds the context, the page tree and the content directives.
 
-## Confidentialité et sécurité
+## Privacy and security
 
-- Tout se passe dans ton navigateur. L'outil n'a ni serveur, ni compte, ni suivi.
-- Les images importées sont analysées localement. Elles ne sont envoyées à Claude que si tu cliques sur « Affiner avec Claude ».
-- Ta clé API n'est envoyée qu'à Anthropic. Ne l'enregistre pas sur un ordinateur partagé, et clique sur **Oublier** quand tu as fini.
-- Les polices viennent de Google Fonts dans l'outil. Le brief recommande de les héberger toi-même sur le site final (RGPD).
-- Un JSON importé est vérifié avant d'être chargé. Les fichiers invalides ou piégés sont refusés.
+- Everything runs in your browser. The tool has no server, no account and no tracking.
+- Imported images are analyzed locally. They are only sent to Claude if you click **Refine with Claude**.
+- Your API key is only sent to Anthropic. Don't save it on a shared computer, and click **Forget** when you are done.
+- The tool loads fonts from Google Fonts. The brief recommends self-hosting them on the final site (GDPR).
+- An imported JSON file is checked before it is loaded. Invalid or tampered files are rejected.
 
-## Héberger sa propre copie
+## Hosting your own copy
 
-**Le plus simple :** télécharge `index.html` et double-clique dessus. Si les appels à Claude échouent depuis un fichier local, utilise la version en ligne ou lance un petit serveur : `python -m http.server`, puis ouvre `http://localhost:8000`.
+**Simplest:** download `index.html` and double-click it. If calls to Claude fail from a local file, use the online version or start a small server: `python -m http.server`, then open `http://localhost:8000`.
 
-**Sur GitHub Pages :**
-1. Fais un *fork* de ce dépôt.
-2. Va dans **Settings → Pages**, choisis « Deploy from a branch », la branche `main` et le dossier `/ (root)`, puis clique sur **Save**.
-3. Ton outil est en ligne à `https://<ton-pseudo>.github.io/claud-style-config/`.
+**On GitHub Pages:**
+1. Fork this repository.
+2. Go to **Settings → Pages**, choose "Deploy from a branch", the `main` branch and the `/ (root)` folder, then click **Save**.
+3. Your tool is live at `https://<your-username>.github.io/claud-style-config/`.
 
-Tout autre hébergement de fichiers statiques convient aussi (Netlify, Cloudflare Pages, un serveur web…).
+Any static file host works too (Netlify, Cloudflare Pages, a web server…).
 
-## Problèmes fréquents
+## Troubleshooting
 
-| Symptôme | Solution |
+| Symptom | Fix |
 |---|---|
-| « Clé API refusée » | La clé est invalide ou a été révoquée, ou le compte n'a plus de crédit. Recrée une clé sur la console. |
-| « Trop de demandes à Claude » | Limite de débit atteinte. Attends une minute. |
-| « Claude n'a pas pu répondre » | Problème réseau ou réponse illisible. L'outil a appliqué l'analyse locale à la place. Réessaie. |
-| L'image n'est pas lue | Utilise un PNG ou un JPEG. |
-| Je veux tout remettre à zéro | Efface les données du site dans ton navigateur (cadenas de la barre d'adresse → Effacer les données). |
-| Le style ne change pas après une directive | La directive est gardée dans le brief pour Claude. Le mode local ne comprend que les demandes simples. |
+| "API key refused" | The key is invalid or revoked, or the account is out of credit. Create a new key in the console. |
+| "Too many requests to Claude" | Rate limit reached. Wait a minute. |
+| "Claude could not answer" | Network problem or unreadable answer. The tool used local analysis instead. Try again. |
+| The image is not read | Use a PNG or a JPEG. |
+| I want to reset everything | Clear the site data in your browser (padlock in the address bar → Clear data). |
+| The style doesn't change after a directive | The directive is kept in the brief for Claude. Local mode only understands simple requests. |
 
-## Pour les développeurs
+## For developers
 
-- Tout le code est dans `index.html` : HTML, CSS et JavaScript, sans dépendance ni build.
-- **Auto-vérification** : ouvre `index.html#test`. La console doit afficher « Auto-vérification terminée », sans aucune erreur d'assertion. Elle vérifie les contrastes des palettes, l'arrondi des valeurs renvoyées par Claude, le filtrage du CSS et la validation des JSON importés.
-- Les appels à Claude passent par l'API Messages (`fetch`) avec l'en-tête `anthropic-dangerous-direct-browser-access`, qui autorise les appels directs depuis un navigateur.
+- All the code is in `index.html`: HTML, CSS and JavaScript, with no dependencies and no build step.
+- **Translations**: in the script, each text is written as `tr("French", "English")`. Static HTML elements carry their English text in `data-en` (and `data-en-placeholder`, `data-en-title`, `data-en-aria-label`). The language is saved in `localStorage` and switching reloads the page. Sample texts the user hasn't changed are translated too; their own text is left as is.
+- **Self-check**: open `index.html#test`. The console should show « Auto-vérification terminée », with no assertion errors. It checks the palette contrasts, the rounding of values returned by Claude, the CSS filtering and the validation of imported JSON.
+- Calls to Claude go through the Messages API (`fetch`) with the `anthropic-dangerous-direct-browser-access` header, which allows direct calls from a browser.
 
-## Licence
+## License
 
 [MIT](LICENSE) © Kettelios-dev
